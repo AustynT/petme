@@ -9,6 +9,9 @@
   "author": "Austyn Travis <Austyntravis9@gmail.com> (http://austyntravis.com)",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0"
   }
 }
