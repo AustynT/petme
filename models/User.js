@@ -8,3 +8,5 @@ const UserSchema = new Schema({
 });
 
 const ModelClass = mongoose.model("user", UserSchema);
+
+module.exports = ModelClass;
