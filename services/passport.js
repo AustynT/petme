@@ -28,3 +28,25 @@ passport.use(
     });
   })
 );
+const jwtOptions = {
+  jwtFromRequest: ExtractJwt.fromHeader("authorization"),
+  secretOrKey: config.secret
+};
+
+const jwtLogin = new JwtStrategy(jwtOptions, function(payload, done) {
+  User.findById(payload.sub, function(err, user) {
+    if (err) {
+      return done(err, false);
+    }
+
+    if (user) {
+      console.log("working");
+      done(null, user);
+    } else {
+      done(null, false);
+    }
+  });
+});
+
+passport.use(jwtLogin);
+passport.use(localLogin);
